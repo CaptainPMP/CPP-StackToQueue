@@ -18,6 +18,7 @@ public:
     int size();
 };
 
+// O(1)
 bool Stack::push(int x)
 {
     if (top >= (MAX - 1)) {
@@ -30,6 +31,7 @@ bool Stack::push(int x)
     }
 }
 
+// O(1)
 int Stack::pop()
 {
     if (top < 0) {
@@ -41,6 +43,8 @@ int Stack::pop()
         return x;
     }
 }
+
+// O(1)
 int Stack::peek()
 {
     if (top < 0) {
@@ -53,11 +57,13 @@ int Stack::peek()
     }
 }
 
+// O(1)
 bool Stack::isEmpty()
 {
     return (top < 0);
 }
 
+// O(n)
 void Stack::empty()
 {
     while (!isEmpty()) {
@@ -65,6 +71,7 @@ void Stack::empty()
     }
 }
 
+// O(1)
 int Stack::size()
 {
     return (top + 1);
@@ -79,25 +86,29 @@ public:
     int size();
     int front();
     int back();
-    bool push(int x);
-    int pop();
+    bool enqueue(int x);
+    int dequeue();
 };
 
+// O(1)
 bool Queue::isEmpty()
 {
     return (s1.isEmpty() && s2.isEmpty());
 }
 
+// O(1)
 void Queue::empty()
 {
     s1.empty();
     s2.empty();
 }
 
+// O(1)
 int Queue::size() {
     return (s1.size() + s2.size());
 }
 
+// O(n)
 int Queue::front()
 {
     if (isEmpty()) {
@@ -111,6 +122,7 @@ int Queue::front()
     return s2.peek();
 }
 
+// O(1)
 int Queue::back()
 {
     if (isEmpty()) {
@@ -122,12 +134,14 @@ int Queue::back()
     return s2.a[0];
 }
 
-bool Queue::push(int x)
+// O(1)
+bool Queue::enqueue(int x)
 {
     return (s1.push(x));
 }
 
-int Queue::pop()
+// O(n)
+int Queue::dequeue()
 {
     if (isEmpty()) {
         return -1;
@@ -144,9 +158,9 @@ int Queue::pop()
 int main()
 {
     class Queue q1;
-    q1.push(10);
-    q1.push(20);
-    q1.push(30);
+    q1.enqueue(10);
+    q1.enqueue(20);
+    q1.enqueue(30);
     cout << "size is : " << q1.size() << endl;
     cout << "front is : " << q1.front() << endl;
     cout << "back is : " << q1.back() << endl;
